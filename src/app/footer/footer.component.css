@@ -1,0 +1,62 @@
+.footer {
+  background: rgb(37, 76, 77);
+  padding-top: 70px;
+}
+.contact {
+  margin-top: 40px;
+}
+.contact .sub-titulo {
+  line-height: 1.5;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+ul.lik li a {
+  color: #fff;
+  font-size: 17px;
+  line-height: 27px;
+text-decoration: none;
+  outline: none !important;
+transition: .6s;
+}
+ul.lik li a:hover {
+  font-weight: bold;
+}
+
+li {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+.copyright {
+  background-color: #fff;
+  padding: 10px 0px;
+  margin-top: 70px;
+}
+.copyright p {
+  color: #023023;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+margin: 0;
+}
+a{
+text-decoration: none;
+  outline: none !important;
+}
+
+.icon{
+width: 25px;
+height:25px;
+margin: 6px;
+}
+
+.icon-redes{
+width: 40px;
+height:40px;
+margin: 6px;
+transition: .6s;
+}
+.b2detalle_item_text{
+font-weight: bold;
+}
