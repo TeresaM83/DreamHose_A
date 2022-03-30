@@ -25,6 +25,10 @@
                     <td>{{d.area}}</td>
                     <td>{{d.precio}}</td>
                     <td>{{d.estado}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="editarDepartamento();"><i class="fa fa-pencil"></i></button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="eliminarDepartamento();"><i class="fa fa-trash"></i></button>
+                      </td>
                 </tr>
             </tbody>
         </table>

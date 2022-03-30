@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { EdificiosComponent } from './edificios/edificios.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ListarComponent } from './Departamentos/listar.component';
+import { ListarComponentD } from './Departamentos/listar.component';
+import { ListarComponentE } from './Edificios/listar.component';
 import { EditarComponent } from './Departamentos/editar.component';
 import { AgregarComponent } from './Departamentos/agregar.component';
 import { EliminarComponent } from './Departamentos/eliminar.component';
@@ -16,8 +16,8 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    EdificiosComponent,
-    ListarComponent,
+    ListarComponentD,
+    ListarComponentE,
     EditarComponent,
     AgregarComponent,
     EliminarComponent,

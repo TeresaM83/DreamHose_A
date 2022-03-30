@@ -9,17 +9,23 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
-  listar() {
+  clientes() {
+    this.router.navigate(['clientes/listar'])
+  }
+  edificios() {
+    this.router.navigate(['edificios/listar'])
+  }
+  departamentos() {
     this.router.navigate(['departamentos/listar'])
   }
-  agregar() {
-    this.router.navigate(['departamentos/agregar'])
+  contratos() {
+    this.router.navigate(['contratos/listar'])
   }
-  editar() {
-    this.router.navigate(['departamentos/editar'])
+  alquileres() {
+    this.router.navigate(['alquileres/listar'])
   }
-  eliminar() {
-    this.router.navigate(['departamentos/eliminar'])
+  pagos() {
+    this.router.navigate(['pagos/listar'])
   }
   inicio() {
     this.router.navigate([''])

@@ -1,0 +1,26 @@
+<div class="my-5 card border-primary " style="max-width:auto;">
+    <div class="card-header">Edificios</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de Edificios</h5>
+      <table class="table table-bordered table-striped text-center">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>n_pisos</th>
+            <th>direccion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of edificios">
+            <td>{{e.id}}</td>
+            <td>{{e.n_pisos}}</td>
+            <td>{{e.direccion}}</td>
+            <td>
+              <button type="button" class="btn btn-primary btn-sm" (click)="editarEdificio();"><i class="fa fa-pencil"></i></button>
+              <button type="button" class="btn btn-danger btn-sm" (click)="eliminarEdificio();"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
