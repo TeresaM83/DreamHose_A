@@ -27,26 +27,11 @@
 	display: inline-block;
 	transition: .8s;
 }
-.nava:hover{
-	border: solid;
-    border-width: 0 0 5px 0;
-    border-color: #fff;
-	transition: 2s;
-}
-/*--------------------INDEX--------------------*/
-
-.vimi{
-	padding: 0px 100px 0px 100px ;
-}
-.imag{
-	width: 500px;
-}
 .info{
 	margin: 20px;
 	display: block;
 	font-size: 20px;
 }
-
 .boton-catalogo{
 	color: black;
 	padding: 10px 24px;

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-catalogo',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private elementRef:ElementRef) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "./assets/index.js";
+    this.elementRef.nativeElement.appendChild(s);
   }
 
 }
+

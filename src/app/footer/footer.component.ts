@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private elementRef:ElementRef) { }
 
   ngOnInit(): void {
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "./assets/index.js";
+    this.elementRef.nativeElement.appendChild(s);
   }
 
 }

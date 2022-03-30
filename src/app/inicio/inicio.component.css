@@ -1,0 +1,105 @@
+/*-.----------------banner----------------*/
+
+.banner{
+	position: relative;
+	background: url(/assets/index/banner.jpg) no-repeat center;
+	background-size: cover;
+	height: 500px;
+}
+.contenedor{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.contenedor h1{
+	margin: 0;
+	font-size: 70px;
+}
+
+.contenedor h1 span{
+	border: 6px solid black;
+	display: inline-block;
+	transition: .8s;
+}
+.nava:hover{
+	border: solid;
+    border-width: 0 0 5px 0;
+    border-color: #fff;
+	transition: 2s;
+}
+/*--------------------INDEX--------------------*/
+
+.vimi{
+	padding: 0px 100px 0px 100px ;
+}
+.imag{
+	width: 500px;
+}
+.imagen{
+	width:100%;
+}
+.info{
+	margin: 20px;
+	display: block;
+	font-size: 20px;
+}
+
+.boton-catalogo{
+	color: black;
+	padding: 10px 24px;
+	background-color: white;
+	text-decoration: none;
+	border-radius: 15px;
+	transition: .6s;
+}
+
+.boton-catalogo:hover{
+	background-color: cadetblue;
+	color: white;
+}
+/*-----------------------catalogo--------------------*/
+.img-depa{
+	height: 250px;
+	object-fit: cover;
+	transition: 1s;
+}
+
+.img-depa:hover{
+	opacity: .5;
+}
+
+.btn-alquilar{
+	width: 45%;
+	background-color: rgb(85, 144, 146);
+	border-color: black;
+}
+
+.btn-departamentos{
+	width: 45%;
+	background-color: rgb(85, 144, 146);
+	border-color: black;
+}
+
+.btn-detalles{
+	width: 45%;
+	background-color: rgb(112, 128, 145);
+	border-color: black;
+}
+
+.btn-alquilar:hover{
+	width: 45%;
+	background-color: rgb(68, 116, 117);
+	border-color: black;
+}
+
+.btn-detalles:hover{
+	width: 45%;
+	background-color: rgb(90, 103, 117);
+	border-color: black;
+}
