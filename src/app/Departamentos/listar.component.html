@@ -1,0 +1,32 @@
+<div class="my-5 card border-primary " style="max-width:auto;">
+    <div class="card-header">Departamentos</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de departamentos</h5>
+        <table class="table table-bordered table-striped text-center">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Piso</th>
+                    <th>Edificio</th>
+                    <th>Habitaciones</th>
+                    <th>Baños</th>
+                    <th>Área</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let d of departamentos">
+                    <td>{{d.id_depa}}</td>
+                    <td>{{d.piso}}</td>
+                    <td>{{d.id_edificio}}</td>
+                    <td>{{d.n_habitaciones}}</td>
+                    <td>{{d.n_banos}}</td>
+                    <td>{{d.area}}</td>
+                    <td>{{d.precio}}</td>
+                    <td>{{d.estado}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

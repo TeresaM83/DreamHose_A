@@ -5,10 +5,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { EdificiosComponent } from './edificios/edificios.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ListarComponent } from './Departamentos/listar/listar.component';
-import { EditarComponent } from './Departamentos/editar/editar.component';
-import { AgregarComponent } from './Departamentos/agregar/agregar.component';
-import { EliminarComponent } from './Departamentos/eliminar/eliminar.component';
+import { ListarComponent } from './Departamentos/listar.component';
+import { EditarComponent } from './Departamentos/editar.component';
+import { AgregarComponent } from './Departamentos/agregar.component';
+import { EliminarComponent } from './Departamentos/eliminar.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 
 @NgModule({

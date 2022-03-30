@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListarComponent } from './Departamentos/listar/listar.component';
-import { EditarComponent } from './Departamentos/editar/editar.component';
-import { AgregarComponent } from './Departamentos/agregar/agregar.component';
-import { EliminarComponent } from './Departamentos/eliminar/eliminar.component';
+import { ListarComponent } from './Departamentos/listar.component';
+import { EditarComponent } from './Departamentos/editar.component';
+import { AgregarComponent } from './Departamentos/agregar.component';
+import { EliminarComponent } from './Departamentos/eliminar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 
