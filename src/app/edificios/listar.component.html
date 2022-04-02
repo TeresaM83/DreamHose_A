@@ -1,37 +1,120 @@
 <section class="container-fluid">
   <div class="box">
-      <div class="container-fluid" style="margin-top: 5px">
-          <div class="box-header pt-3">
-              <h3 class="box-title">Listado de Edificios</h3>
-          </div>
-          <div class="box-body mx-3 my-5">
-              <div class="table-responsive">
-                  <table class="table text-center table-hover table-bordered table-ligth pt-3 pb-2" id="ListaEdificios" width="100%" cellspacing="0">
-                      <thead class="table-dark">
-                        <tr>
-                          <th>Id</th>
-                          <th>Pisos</th>
-                          <th>Direccion</th>
-                          <th>Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let e of edificios">
-                          <td>{{e.id}}</td>
-                          <td>{{e.n_pisos}}</td>
-                          <td>{{e.direccion}}</td>
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm mx-1" (click)="editarEdificio();"><i
-                                class="fa fa-pencil"></i></button>
-                            <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminarEdificio();"><i
-                                class="fa fa-trash"></i></button>
-                          </td>
-                        </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-          <div class="box-footer"></div>
+    <div class="container-fluid" style="margin-top: 5px">
+      <div class="box-header pt-5">
+        <h3 class="box-title">Mantenimiento de Edificios</h3>
       </div>
+      <div>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#mdlEdificio" class="btn btn-success">
+          <i class="fa fa-plus"></i> Nuevo Edificio</button>
+      </div>
+      <div class="box-body mx-3 my-5">
+        <div class="table-responsive">
+          <table class="table text-center table-hover table-bordered table-ligth pt-3 pb-2" id="ListaEdificios"
+            width="100%" cellspacing="0">
+            <thead class="table-dark">
+              <tr>
+                <th>Id</th>
+                <th>Pisos</th>
+                <th>Direccion</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of edificios">
+                <td>{{e.id}}</td>
+                <td>{{e.n_pisos}}</td>
+                <td>{{e.direccion}}</td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#mdlEdificioActu" (click)="editarEdificio();"><i
+                      class="fa fa-pencil"></i></button>
+                  <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminarEdificio();"><i
+                      class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="box-footer"></div>
+    </div>
+  </div>
+</section>
+<section>
+  <!-- REGISTRAR -->
+  <div class="modal fade" id="mdlEdificio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registro de Edificios</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <div id="carga-formulario">
+          <form class="form" id="formEdificioReg" method="POST">
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-arrow-right-to-city"></i></span>
+                <input type="number" class="form-control" required  placeholder="Pisos" aria-label="Pisos" name="pisos" aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                <input type="text" class="form-control" minlength="1" maxlength="100" required placeholder="Dirección" aria-label="Dirección" name="direccion" aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="alert alert-danger mb-0 mt-3 mr-3">Datos requeridos(*)</div>
+            </div>
+            <div class="modal-footer ">
+              <button type="button" onclick="btn_cancelar()" class="btn btn-danger" data-bs-dismiss="modal"><i
+                  class="fa fa-times"></i> Cancelar</button>
+              <button type="submit" value="Registrar" class="btn btn-success"><i class="fa fa-save"></i>
+                Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <!-- ACTUALIZAR -->
+  <div class="modal fade" id="mdlEdificioActu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar Edificio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <div id="carga-formulario">
+          <form class="form" id="formEdificioActu" method="POST">
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-arrow-right-to-city"></i></span>
+                <input type="number" class="form-control" required  placeholder="Pisos" aria-label="Pisos" name="pisosa" id="pisos" aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                <input type="text" class="form-control" minlength="1" maxlength="100" required placeholder="Dirección" aria-label="Dirección" name="direcciona" id="direccion" aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="alert alert-danger mb-0 mt-3 mr-3">Datos requeridos(*)</div>
+            </div>
+            <div class="modal-footer ">
+              <button type="button" onclick="btn_cancelar()" class="btn btn-danger" data-bs-dismiss="modal"><i
+                  class="fa fa-times"></i> Cancelar</button>
+              <button type="submit" value="Registrar" class="btn btn-primary"><i class="fa fa-save"></i>
+                Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
 </section>

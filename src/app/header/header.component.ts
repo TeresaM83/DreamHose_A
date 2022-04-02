@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['clientes/listar'])
   }
   edificios() {
-    this.router.navigate(['edificios/listar'])
+    this.router.navigate(['edificios/mantenimiento'])
   }
   departamentos() {
     this.router.navigate(['departamentos/listar'])

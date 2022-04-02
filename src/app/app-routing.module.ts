@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'departamentos/eliminar', component:EliminarComponent},
 
   {path:'clientes/listar', component:ListarComponentC},
-  {path:'edificios/listar', component:ListarComponentE},
+  {path:'edificios/mantenimiento', component:ListarComponentE},
   {path:'contratos/listar', component:ListarComponentCo},
   {path:'alquileres/listar', component:ListarComponentA},
   {path:'pagos/listar', component:ListarComponentP},
