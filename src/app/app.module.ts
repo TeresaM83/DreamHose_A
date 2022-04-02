@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ListarComponentD } from './Departamentos/listar.component';
 import { ListarComponentE } from './Edificios/listar.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
-
+import {EdificioService} from './Servicios/edificio.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,7 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EdificioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

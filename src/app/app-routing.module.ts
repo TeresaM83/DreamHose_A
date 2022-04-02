@@ -12,6 +12,7 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 const routes: Routes = [ 
 
   {path:'', component:InicioComponent},
+  // {path:'', redirectTo:'/catalogo',pathMatch:"full"},
   {path:'catalogo', component:CatalogoComponent},
   {path:'departamentos/mantenimiento', component:ListarComponentD},
   {path:'clientes/listar', component:ListarComponentC},
