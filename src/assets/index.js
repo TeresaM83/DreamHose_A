@@ -9,8 +9,15 @@ $(document).ready( function () {
         ],
         "order": [[0, "desc"]]
     });
-    $('#ListaDepartamentos').DataTable();
-
+    $('#ListaDepartamentos').dataTable({
+        "language": {url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'},
+        "responsive": true,
+        "columnDefs": [
+            { responsivePriority: 1, targets: 0 },
+            { responsivePriority: 2, targets: -1 }
+        ],
+        "order": [[0, "desc"]]
+    });
     // EFECTOS
     
     $("#titulo-banner").hover(function () {

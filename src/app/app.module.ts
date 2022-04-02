@@ -6,9 +6,6 @@ import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ListarComponentD } from './Departamentos/listar.component';
 import { ListarComponentE } from './Edificios/listar.component';
-import { EditarComponent } from './Departamentos/editar.component';
-import { AgregarComponent } from './Departamentos/agregar.component';
-import { EliminarComponent } from './Departamentos/eliminar.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 
 @NgModule({
@@ -18,9 +15,6 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
     FooterComponent,
     ListarComponentD,
     ListarComponentE,
-    EditarComponent,
-    AgregarComponent,
-    EliminarComponent,
     CatalogoComponent,
   ],
   imports: [
