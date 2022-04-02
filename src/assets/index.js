@@ -46,24 +46,6 @@ $(document).ready( function () {
     $("#img-vision").click(function (e) { 
         $("#vision").toggle(2000);
     });
-    $("#btn-verMas").click(function (e) { 
-        $("#card-body").slideToggle();
-    });
-    $("#btn-verMas2").click(function (e) { 
-        $("#card-body2").slideToggle();
-    });
-    $("#btn-verMas3").click(function (e) { 
-        $("#card-body3").slideToggle();
-    });
-    $("#btn-verMas4").click(function (e) { 
-        $("#card-body4").slideToggle();
-    });
-    $("#btn-verMas5").click(function (e) { 
-        $("#card-body5").slideToggle();
-    });
-    $("#btn-verMas6").click(function (e) { 
-        $("#card-body6").slideToggle();
-    });
     $(".precio").mouseleave(function () {
         $(this).css("color", "gray","opacity:", "0.2");
     });
@@ -91,3 +73,6 @@ function iconosover(id){
     document.getElementById(id).style.width = "50px";
     document.getElementById(id).style.height = "50px";
 }
+function vermas(id){
+    $('#v'+id).slideToggle();
+};
