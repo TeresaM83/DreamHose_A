@@ -7,7 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { ListarComponentD } from './Departamentos/listar.component';
 import { ListarComponentE } from './Edificios/listar.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
-import {EdificioService} from './Servicios/edificio.service'
+import {EdificioService} from './Servicios/edificio.service';
+import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,9 @@ import {EdificioService} from './Servicios/edificio.service'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [EdificioService],
   bootstrap: [AppComponent]
