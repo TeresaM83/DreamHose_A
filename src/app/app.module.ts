@@ -10,7 +10,7 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 import {EdificioService} from './Servicios/edificio.service';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
-
+import { DepartamentoService } from './Servicios/departamento.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +26,8 @@ import { HttpClientModule } from "@angular/common/http";
     FormsModule,
     HttpClientModule
   ],
-  providers: [EdificioService],
+  providers: [EdificioService,
+  DepartamentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

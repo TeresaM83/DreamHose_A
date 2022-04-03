@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DepartamentoService } from '../Servicios/departamento.service';
 import { Departamento } from './departamento';
 
 @Component({
@@ -9,10 +10,9 @@ import { Departamento } from './departamento';
 })
 export class ListarComponentD implements OnInit {
 
-  departamentos: Departamento[] = [
-    { id_depa: 1, piso: 5, id_edificio:1, n_habitaciones:1, n_banos:1,area:12, precio:123,estado:"activo"}
-  ]
-  constructor(private router: Router, private elementRef:ElementRef) { }
+  departamentos: Departamento[] = []
+  constructor(private router: Router, private elementRef:ElementRef, private departamentoservice: DepartamentoService) { }
+
   editarDepartamento(){
 
   }
@@ -24,6 +24,11 @@ export class ListarComponentD implements OnInit {
     s.type = "text/javascript";
     s.src = "./assets/index.js";
     this.elementRef.nativeElement.appendChild(s);
+
+    this.departamentoservice.getDepartamentos().subscribe(
+      departamentos=> this.departamentos = departamentos
+    );
+
   }
 
 }

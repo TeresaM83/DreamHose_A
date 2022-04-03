@@ -1,7 +1,9 @@
+import { Edificio } from "../Edificios/edificio";
+
 export class Departamento {
-    id_depa: number | undefined;
+    id: number | undefined;
     piso: number | undefined;
-    id_edificio: number | undefined;
+    edificio: Edificio | undefined;
     n_habitaciones: number | undefined;
     n_banos: number | undefined;
     area: number | undefined;
