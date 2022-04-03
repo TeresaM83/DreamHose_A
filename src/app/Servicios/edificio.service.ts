@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import{Observable} from 'rxjs';
 import { of } from 'rxjs';
 import { Edificio } from '../Edificios/edificio';
-import { EDIFICIOS } from '../Edificios/edificios.json';
 @Injectable({
   providedIn: 'root'
 })
