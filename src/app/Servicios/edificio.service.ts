@@ -16,4 +16,7 @@ export class EdificioService {
   getEdificios(){
     return this.http.get<Edificio[]>(this.Url);
   }
+  createEdificio(edificio: Edificio){
+    return this.http.post<Edificio>(this.Url, edificio);
+  }
 }

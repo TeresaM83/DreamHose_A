@@ -11,6 +11,8 @@ node_modules/*
 npm-debug.log
 yarn-error.log
 !node_modules/@angular
+!node_modules/sweetalert2
+!node_modules/@types/jquery
 
 # IDEs and editors
 .idea/
