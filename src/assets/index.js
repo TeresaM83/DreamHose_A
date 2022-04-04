@@ -76,3 +76,8 @@ function iconosover(id){
 function vermas(id){
     $('#v'+id).slideToggle();
 };
+function cancelar() {
+    $('#formEdificioReg')[0].reset();
+    $('#formEdificioActu')[0].reset();
+    alertify.error('Canceló la operación');
+};

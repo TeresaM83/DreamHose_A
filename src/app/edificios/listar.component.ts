@@ -9,24 +9,22 @@ import Swal from "sweetalert2"
   styleUrls :["./edificios.component.css"]
 })
 export class ListarComponentE implements OnInit {
-
   edificio: Edificio= new Edificio();
   edificios: Edificio[]=[];
   constructor(private router: Router, private elementRef:ElementRef, private edificioService: EdificioService) { }
-
-  cancelar(){
-  }
   guardar(edificio: Edificio){
     if(edificio.n_pisos!=null && edificio.n_pisos>0 && edificio.direccion!=null){
       this.edificioService.createEdificio(edificio).subscribe(
         data=>{
-            Swal.fire("Éxito","Edificio agregado correctamente","success");
-            this.router.navigate(["edificios/mantenimiento"]);
-            location.reload();
+            Swal.fire("Éxito","Edificio agregado correctamente","success").then((result) =>{
+              if (result.isConfirmed) {
+                location.reload();
+              }
+            })
         }
       );
     } else{
-      Swal.fire("Error","Ha ocurrido un error, complete todos los campos con los datos correspondientes","error");
+      Swal.fire("Error","Complete todos los campos con los datos correspondientes","error");
     }
   }
   editar(){
