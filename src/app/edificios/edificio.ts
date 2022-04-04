@@ -1,5 +1,5 @@
 export class Edificio {
-  id: number | undefined;
-  n_pisos: number | undefined;
-  direccion: string | undefined;
+  id!: number;
+  n_pisos!: number;
+  direccion!: string;
 }

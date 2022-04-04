@@ -79,5 +79,4 @@ function vermas(id){
 function cancelar() {
     $('#formEdificioReg')[0].reset();
     $('#formEdificioActu')[0].reset();
-    alertify.error('Canceló la operación');
 };

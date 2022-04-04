@@ -26,7 +26,7 @@
                 <td>{{e.n_pisos}}</td>
                 <td>{{e.direccion}}</td>
                 <td>
-                  <button type="button" class="btn btn-primary btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#mdlEdificioActu" (click)="editar();"><i
+                  <button type="button" class="btn btn-primary btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#mdlEdificioActu" (click)="listarId(e)"><i
                       class="fa fa-pencil"></i></button>
                   <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminar();"><i
                       class="fa fa-trash"></i></button>
@@ -95,20 +95,20 @@
             <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-arrow-right-to-city"></i></span>
-                <input type="number" class="form-control" required  placeholder="Pisos" aria-label="Pisos" name="pisosa" id="pisos" aria-describedby="basic-addon1">
+                <input type="number"[(ngModel)]="edificio.n_pisos"  class="form-control" required  placeholder="Pisos" aria-label="Pisos" name="pisosa" id="pisos" aria-describedby="basic-addon1">
                 <p class="text-danger m-auto px-1">(*)</p>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
-                <input type="text" class="form-control" minlength="1" maxlength="100" required placeholder="Dirección" aria-label="Dirección" name="direcciona" id="direccion" aria-describedby="basic-addon1">
+                <input type="text" [(ngModel)]="edificio.direccion" class="form-control" minlength="1" maxlength="100" required placeholder="Dirección" aria-label="Dirección" name="direcciona" id="direccion" aria-describedby="basic-addon1">
                 <p class="text-danger m-auto px-1">(*)</p>
               </div>
               <div class="alert alert-danger mb-0 mt-3 mr-3">Datos requeridos(*)</div>
             </div>
             <div class="modal-footer ">
-              <button type="button" onclick="btn_cancelar()" class="btn btn-danger" data-bs-dismiss="modal"><i
+              <button type="button" onclick="cancelar()" class="btn btn-danger" data-bs-dismiss="modal"><i
                   class="fa fa-times"></i> Cancelar</button>
-              <button type="submit" value="Registrar" class="btn btn-primary"><i class="fa fa-save"></i>
+              <button type="submit" value="Actualizar" class="btn btn-primary" (click)="actualizar(edificio);"><i class="fa fa-save"></i>
                 Actualizar</button>
             </div>
           </form>

@@ -19,4 +19,10 @@ export class EdificioService {
   createEdificio(edificio: Edificio){
     return this.http.post<Edificio>(this.Url, edificio);
   }
+  getEdificioId(id: number){
+    return this.http.get<Edificio>(this.Url+"/"+id)
+  }
+  updateEdificio(edificio: Edificio){{
+    return this.http.put<Edificio>(this.Url+"/"+edificio.id, edificio)
+  }}
 }

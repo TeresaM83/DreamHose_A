@@ -13,7 +13,7 @@ export class ListarComponentE implements OnInit {
   edificios: Edificio[]=[];
   constructor(private router: Router, private elementRef:ElementRef, private edificioService: EdificioService) { }
   guardar(edificio: Edificio){
-    if(edificio.n_pisos!=null && edificio.n_pisos>0 && edificio.direccion!=null){
+    if(edificio.n_pisos!=null && edificio.n_pisos>0 && edificio.direccion.trim()!=null){
       this.edificioService.createEdificio(edificio).subscribe(
         data=>{
             Swal.fire("Éxito","Edificio agregado correctamente","success").then((result) =>{
@@ -27,8 +27,26 @@ export class ListarComponentE implements OnInit {
       Swal.fire("Error","Complete todos los campos con los datos correspondientes","error");
     }
   }
-  editar(){
-    
+  listarId(edificio: Edificio):void {
+    this.edificioService.getEdificioId(edificio.id).subscribe(data=>{
+      this.edificio=data;
+    })
+  }
+  actualizar(edificio: Edificio){
+    if(edificio.n_pisos!=null && edificio.n_pisos>0 && edificio.direccion.trim()!=null){
+      this.edificioService.updateEdificio(edificio).subscribe(
+        data=>{
+          this.edificio=data
+            Swal.fire("Éxito","Edificio actualizado correctamente","success").then((result) =>{
+              if (result.isConfirmed) {
+                location.reload();
+              }
+            })
+        }
+      );
+    } else{
+      Swal.fire("Error","Complete todos los campos con los datos correspondientes","error");
+    }
   }
   eliminar(){
     
