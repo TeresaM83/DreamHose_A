@@ -48,8 +48,27 @@ export class ListarComponentE implements OnInit {
       Swal.fire("Error","Complete todos los campos con los datos correspondientes","error");
     }
   }
-  eliminar(){
-    
+  eliminar(edificio: Edificio){
+    Swal.fire({
+      title: 'Estás seguro en eliminar?',
+      text: "Se eliminará el edificio!!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.edificioService.deleteEdificio(edificio).subscribe(
+          data=>{
+            this.edificios=this.edificios.filter(e=>e!==edificio);
+            Swal.fire("Éxito","Edificio eliminado correctamente","success");
+        })
+      }else {
+        Swal.fire("Cancelado","Canceló la operación","info");
+      }
+    })
   }
   ngOnInit(): void {
     var s = document.createElement("script");

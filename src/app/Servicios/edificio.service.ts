@@ -22,7 +22,10 @@ export class EdificioService {
   getEdificioId(id: number){
     return this.http.get<Edificio>(this.Url+"/"+id)
   }
-  updateEdificio(edificio: Edificio){{
+  updateEdificio(edificio: Edificio){
     return this.http.put<Edificio>(this.Url+"/"+edificio.id, edificio)
-  }}
+  }
+  deleteEdificio(edificio: Edificio){
+    return this.http.delete<Edificio>(this.Url+"/"+edificio.id)
+  }
 }

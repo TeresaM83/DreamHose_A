@@ -1,50 +1,133 @@
 <section class="container-fluid">
-    <div class="box">
-        <div class="container-fluid" style="margin-top: 5px">
-            <div class="box-header pt-5">
-                <h3 class="box-title">Mantenimiento de Departamentos</h3>
-            </div>
-            <div>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#mdlDepartamento" class="btn btn-success">
+  <div class="box">
+    <div class="container-fluid" style="margin-top: 5px">
+      <div class="box-header pt-5">
+        <h3 class="box-title">Mantenimiento de Departamentos</h3>
+      </div>
+      <div>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#mdlDepartamento" class="btn btn-success">
           <i class="fa fa-plus"></i> Nuevo Departamento</button>
-            </div>
-            <div class="box-body mx-3 my-5">
-                <div class="table-responsive">
-                    <table class="table text-center table-hover table-bordered table-ligth pt-3 pb-2" id="ListaDepartamentos" width="100%" cellspacing="0">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Id</th>
-                                <th>Piso</th>
-                                <th>Edificio</th>
-                                <th>Habitaciones</th>
-                                <th>Baños</th>
-                                <th>Área</th>
-                                <th>Precio</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let d of departamentos">
-                                <td>{{d.id}}</td>
-                                <td>{{d.piso}}</td>
-                                <td>{{d.edificio?.id}}</td>
-                                <td>{{d.n_habitaciones}}</td>
-                                <td>{{d.n_banos}}</td>
-                                <td>{{d.area}}</td>
-                                <td>{{d.precio}}</td>
-                                <td>{{d.estado}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-primary btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#mdlDepartamentoActu" (click)="editarDepartamento();"><i class="fa fa-pencil"></i></button>
-                                    <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminarDepartamento();"><i
+      </div>
+      <div class="box-body mx-3 my-5">
+        <div class="table-responsive">
+          <table class="table text-center table-hover table-bordered table-ligth pt-3 pb-2" id="ListaDepartamentos"
+            width="100%" cellspacing="0">
+            <thead class="table-dark">
+              <tr>
+                <th>Id</th>
+                <th>Piso</th>
+                <th>Edificio</th>
+                <th>Habitaciones</th>
+                <th>Baños</th>
+                <th>Área</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of departamentos">
+                <td>{{d.id}}</td>
+                <td>{{d.piso}}</td>
+                <td>{{d.edificio?.id}}</td>
+                <td>{{d.n_habitaciones}}</td>
+                <td>{{d.n_banos}}</td>
+                <td>{{d.area}}</td>
+                <td>{{d.precio}}</td>
+                <td>{{d.estado}}</td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm mx-1" data-bs-toggle="modal"
+                    data-bs-target="#mdlDepartamentoActu" (click)="listarId(d);"><i class="fa fa-pencil"></i></button>
+                  <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminar(d);"><i
                       class="fa fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="box-footer"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
+      <div class="box-footer"></div>
     </div>
+  </div>
 </section>
+<!-- REGISTRAR -->
+<div class="modal fade" id="mdlDepartamento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro de Departamentos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="carga-formulario">
+          <form class="form" id="formDepartamentoReg" method="POST">
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-arrow-right-to-city"></i></span>
+                  <select
+                  [(ngModel)]="departamento.edificio"  class="form-select" aria-label="Default select example">
+                  <option *ngFor="let e of edificios" value="{{e}}" selected >{{e.direccion}}</option>
+                  </select>
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                <input type="number" [(ngModel)]="departamento.piso" class="form-control" minlength="1" maxlength="100"
+                  required placeholder="Piso" aria-label="Piso" name="piso"
+                  aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-bed"></i></span>
+                <input type="number" [(ngModel)]="departamento.n_habitaciones" class="form-control" minlength="1" maxlength="100"
+                  required placeholder="Habitaciones" aria-label="habitaciones" name="n_habitaciones"
+                  aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-bath"></i></span>
+                <input type="number" [(ngModel)]="departamento.n_banos" class="form-control" minlength="1" maxlength="100"
+                  required placeholder="Baños" aria-label="Baños" name="n_banos"
+                  aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-expand"></i></span>
+                <input type="number" [(ngModel)]="departamento.area" class="form-control" minlength="1" maxlength="100"
+                  required placeholder="Area" aria-label="Area" name="area"
+                  aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-money-bill-1"></i></span>
+                <input type="number" [(ngModel)]="departamento.precio" class="form-control" minlength="1" maxlength="100"
+                  required placeholder="Precio" aria-label="Precio" name="precio"
+                  aria-describedby="basic-addon1">
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-face-meh-blank"></i></span>
+                  <select
+                  [(ngModel)]="departamento.estado"  class="form-select" aria-label="Default select example">
+                  <option value="Disponible" selected="selected">Disponible</option>
+                  <option value="Ocuapado">Ocupado</option>
+                  </select>
+                <p class="text-danger m-auto px-1">(*)</p>
+              </div>
+              <div class="alert alert-danger mb-0 mt-3 mr-3">Datos requeridos(*)</div>
+            </div>
+            <div class="modal-footer ">
+              <button type="button" onclick="cancelar()" class="btn btn-danger" data-bs-dismiss="modal"><i
+                  class="fa fa-times"></i> Cancelar</button>
+              <button type="submit" (click)="guardar(departamento)" value="Registrar" class="btn btn-success"><i
+                  class="fa fa-save"></i>
+                Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

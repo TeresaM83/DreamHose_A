@@ -1,5 +1,6 @@
 $(document).ready( function () {
     // TABLAS
+    $(".ver-mas").hide();
     $('#ListaEdificios').dataTable({
         "language": {url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'},
         "responsive": true,
@@ -34,7 +35,6 @@ $(document).ready( function () {
     $(".btn-alquilar").click(function () {
         swal("La opción alquilar aún no está disponible, gracias...!");
     });
-    $(".ver-mas").hide();
     $("#btn-acerca").click(function () {
         $("#acerca").show(500);
         $(this).css("color", "blue");
