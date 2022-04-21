@@ -8,7 +8,7 @@ import { Departamento } from '../Departamentos/departamento';
 export class DepartamentoService {
 
   constructor(private http:HttpClient){}
-    Url='http://localhost:8099/departamento/apidepartamento'
+    Url='http://localhost:1010/departamento'
 
     getDepartamentos(){
       return this.http.get<Departamento[]>(this.Url);
