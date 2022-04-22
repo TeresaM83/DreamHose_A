@@ -9,7 +9,7 @@ import { Edificio } from '../Edificios/edificio';
 export class EdificioService {
 
   constructor(private http: HttpClient) { }
-  Url='http://localhost:1010/edificio'
+  Url=' '
   // getEdificios():Observable<Edificio[]>{
   //   return of (EDIFICIOS);
   // }
