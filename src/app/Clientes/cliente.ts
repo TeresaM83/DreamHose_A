@@ -7,10 +7,10 @@ export class Cliente {
   a_materno!: string;
   dni!: string;
   direccion!: string;
-  roles!: Roles;
   telefono!: string;
   correo!: string;
   contrasena!: string;
   estado!: string;
+  roles!: Roles;
 }
 

@@ -13,12 +13,11 @@ export class ListarComponentC implements OnInit {
   cliente: Cliente = new Cliente();
   clientes: Cliente[] = [];
   estados =[
-    {nombre:'Activo' },
-    {nombre:'Inactivo' }
+    {nombre:'Activo'},
+    {nombre:'Inactivo'},
 ];
+
   constructor(private router: Router, private elementRef:ElementRef, private clienteService: ClienteService) { }
-
-
 
   guardar(cliente: Cliente){
     if(cliente.nombres!=null && cliente.a_materno!=null && cliente.a_paterno!=null &&
@@ -86,7 +85,7 @@ export class ListarComponentC implements OnInit {
     c.type = "text/javascript";
     c.src = "./assets/index.js";
     this.elementRef.nativeElement.appendChild(c);
-    this.cliente.estado = "Activo"
+    
     this.clienteService.getClientes().subscribe(
       clientes => this.clientes = clientes
     );
