@@ -29,7 +29,7 @@
               <tr *ngFor="let d of departamentos">
                 <td>{{d.id}}</td>
                 <td>{{d.piso}}</td>
-                <td>{{d.edificio?.direccion}}</td>
+                <td>{{d.edificio.direccion}}</td>
                 <td>{{d.n_habitaciones}}</td>
                 <td>{{d.n_banos}}</td>
                 <td>{{d.area}}</td>
@@ -68,7 +68,7 @@
                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-arrow-right-to-city"></i></span>
                   <select
                   [(ngModel)]="departamento.edificio"  class="form-select" aria-label="Default select example">
-                  <option *ngFor="let e of edificios" value="{{e}}" selected >{{e.direccion}}</option>
+                  <option *ngFor="let e of edificios" value="{{e.id}}" name="edificio" selected >{{e.direccion}}</option>
                   </select>
                 <p class="text-danger m-auto px-1">(*)</p>
               </div>
@@ -112,7 +112,7 @@
                   <select
                   [(ngModel)]="departamento.estado"  class="form-select" aria-label="Default select example">
                   <option value="Disponible" selected="selected">Disponible</option>
-                  <option value="Ocuapado">Ocupado</option>
+                  <option value="Ocupado">Ocupado</option>
                   </select>
                 <p class="text-danger m-auto px-1">(*)</p>
               </div>

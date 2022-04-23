@@ -8,21 +8,21 @@ import { Departamento } from '../Departamentos/departamento';
 export class DepartamentoService {
 
   constructor(private http:HttpClient){}
-    Url='http://localhost:8099/departamento/apidepartamento'
+    Url='http://localhost:8099/api/departamento'
 
     getDepartamentos(){
       return this.http.get<Departamento[]>(this.Url);
     }
-    createDepartamentos(departamento: Departamento){
-      return this.http.post<Departamento>(this.Url, Departamento);
-    }
-    getDepartamentoId(id: number){
+    getDepartamento(id: number){
       return this.http.get<Departamento>(this.Url+"/"+id)
     }
-    updateDepartamento(depa: Departamento){
-      return this.http.put<Departamento>(this.Url+"/"+depa.id, depa)
+    createDepartamento(departamento: Departamento){
+      return this.http.post<Departamento>(this.Url, departamento);
     }
-    deleteDepartamento(depa: Departamento){
-      return this.http.delete<Departamento>(this.Url+"/"+depa.id)
+    updateDepartamento(departamento: Departamento){
+      return this.http.put<Departamento>(this.Url+"/"+departamento.id, departamento)
+    }
+    deleteDepartamento(departamento: Departamento){
+      return this.http.delete<Departamento>(this.Url+"/"+departamento.id)
     }
 }
