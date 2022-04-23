@@ -9,9 +9,12 @@ import Swal from "sweetalert2"
   styleUrls :["./edificios.component.css"]
 })
 export class ListarComponentE implements OnInit {
-  edificio: Edificio= new Edificio();
-  edificios: Edificio[]=[];
+
+  edificio: Edificio = new Edificio();
+  edificios: Edificio[] = [];
+
   constructor(private router: Router, private elementRef:ElementRef, private edificioService: EdificioService) { }
+  
   guardar(edificio: Edificio){
     if(edificio.n_pisos!=null && edificio.n_pisos>0 && edificio.direccion.trim()!=null){
       this.edificioService.createEdificio(edificio).subscribe(
@@ -27,8 +30,9 @@ export class ListarComponentE implements OnInit {
       Swal.fire("Error","Complete todos los campos con los datos correspondientes","error");
     }
   }
+
   listarId(edificio: Edificio):void {
-    this.edificioService.getEdificioId(edificio.id).subscribe(data=>{
+    this.edificioService.getEdificio(edificio.id).subscribe(data=>{
       this.edificio=data;
     })
   }
@@ -77,7 +81,7 @@ export class ListarComponentE implements OnInit {
     this.elementRef.nativeElement.appendChild(s);
 
     this.edificioService.getEdificios().subscribe(
-      edificios=> this.edificios=edificios
+      edificios => this.edificios = edificios
     );
   }
 }

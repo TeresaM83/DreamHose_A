@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DepartamentoService } from '../Servicios/departamento.service';
 import { Departamento } from './departamento';
 import Swal from "sweetalert2"
-import { Edificio } from '../Edificios/edificio';
+import { Edificio } from '../edificios/edificio';
 import { EdificioService } from '../Servicios/edificio.service';
 
 @Component({

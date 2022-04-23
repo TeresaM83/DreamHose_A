@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { Edificio } from '../Edificios/edificio';
+import { Edificio } from '../edificios/edificio';
 import { EdificioService } from '../Servicios/edificio.service';
 
 

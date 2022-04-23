@@ -1,4 +1,4 @@
-import { Edificio } from "../Edificios/edificio";
+import { Edificio } from "../edificios/edificio";
 
 export class Departamento {
     id!: number ;

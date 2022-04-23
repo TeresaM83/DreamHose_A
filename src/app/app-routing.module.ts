@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListarComponentD } from './Departamentos/listar.component';
 import { ListarComponentC } from './Clientes/listar.component';
-import { ListarComponentE } from './Edificios/listar.component';
+import { ListarComponentE } from './edificios/listar.component';
 import { ListarComponentCo } from './Contratos/listar.component';
 import { ListarComponentA } from './Alquileres/listar.component';
 import { ListarComponentP } from './Pagos/listar.component';
