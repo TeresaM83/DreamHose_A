@@ -14,11 +14,13 @@ import { EdificioService } from '../Servicios/edificio.service';
 export class ListarComponentD implements OnInit {
   departamento: Departamento= new Departamento;
   departamentos: Departamento[] = [];
-  constructor(private edificioService: EdificioService, private elementRef:ElementRef, private departamentoservice: DepartamentoService) { }
   edificios: Edificio[]=[];
+
+  constructor(private edificioService: EdificioService, private elementRef:ElementRef, private departamentoService: DepartamentoService) { }
+  
   guardar(departamento: Departamento){
-    if(departamento.edificio!=null  && departamento.piso!=null && departamento.piso>0 && departamento.n_habitaciones!=null && departamento.n_habitaciones>0 && departamento.n_banos!=null && departamento.n_banos>0 && departamento.area!=null && departamento.area>0 && departamento.precio!=null && departamento.precio>0 && departamento.estado.trim()!=null){
-      this.departamentoservice.createDepartamentos(departamento).subscribe(
+    if(departamento.piso!=null && departamento.piso>0 && departamento.n_habitaciones!=null && departamento.n_habitaciones>0 && departamento.n_banos!=null && departamento.n_banos>0 && departamento.area!=null && departamento.area>0 && departamento.precio!=null && departamento.precio>0){
+      this.departamentoService.createDepartamento(departamento).subscribe(
         data=>{
             Swal.fire("Éxito","Departamento agregado correctamente","success").then((result) =>{
               if (result.isConfirmed) {
@@ -32,13 +34,13 @@ export class ListarComponentD implements OnInit {
     }
   }
   listarId(departamento: Departamento):void {
-    this.departamentoservice.getDepartamentoId(departamento.id).subscribe(data=>{
+    this.departamentoService.getDepartamento(departamento.id).subscribe(data=>{
       this.departamento=data;
     })
   }
   actualizar(departamento: Departamento){
     if(departamento.edificio!=null  && departamento.piso!=null && departamento.piso>0 && departamento.n_habitaciones!=null && departamento.n_habitaciones>0 && departamento.n_banos!=null && departamento.n_banos>0 && departamento.area!=null && departamento.area>0 && departamento.precio!=null && departamento.precio>0 && departamento.estado.trim()!=null){
-      this.departamentoservice.updateDepartamento(departamento).subscribe(
+      this.departamentoService.updateDepartamento(departamento).subscribe(
         data=>{
           this.departamento=data
             Swal.fire("Éxito","Departamento actualizado correctamente","success").then((result) =>{
@@ -64,7 +66,7 @@ export class ListarComponentD implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.departamentoservice.deleteDepartamento(departamento).subscribe(
+        this.departamentoService.deleteDepartamento(departamento).subscribe(
           data=>{
             this.departamentos=this.departamentos.filter(e=>e!==departamento);
             Swal.fire("Éxito","Departamento eliminado correctamente","success");
@@ -81,7 +83,7 @@ export class ListarComponentD implements OnInit {
     s.src = "./assets/index.js";
     this.elementRef.nativeElement.appendChild(s);
 
-    this.departamentoservice.getDepartamentos().subscribe(
+    this.departamentoService.getDepartamentos().subscribe(
       departamentos=> this.departamentos = departamentos
     );
     this.edificioService.getEdificios().subscribe(
