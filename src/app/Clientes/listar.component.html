@@ -39,8 +39,8 @@
                 <td>
                   <button type="button" class="btn btn-primary btn-sm mx-1" data-bs-toggle="modal"
                     data-bs-target="#mdlClienteActu" (click)="listarId(c)"><i class="fa fa-pencil"></i></button>
-                  <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminar(c);"><i
-                      class="fa fa-trash"></i></button>
+                  <!-- <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminar(c);"><i
+                      class="fa fa-trash"></i></button> -->
                 </td>
               </tr>
             </tbody>
@@ -92,12 +92,6 @@
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text"><i class="fa fa-home"></i></span>
-                  <input type="text" [(ngModel)]="cliente.direccion" class="form-control" minlength="1" maxlength="100"
-                    required placeholder="Dirección" name="direccion">
-                  <p class="text-danger m-auto px-1">(*)</p>
-                </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text"><i class="fa fa-home"></i></span>
                   <input type="text" [(ngModel)]="cliente.telefono" class="form-control" minlength="1" maxlength="100"
                     required placeholder="Teléfono" name="telefono">
                   <p class="text-danger m-auto px-1">(*)</p>
@@ -136,8 +130,9 @@
       </div>
     </div>
   </div>
+
   <!-- ACTUALIZAR -->
-  <!-- <div class="modal fade" id="mdlClienteActu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="mdlClienteActu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
       <div class="modal-content">
         <div class="modal-header">
@@ -148,20 +143,55 @@
         </div>
         <div class="modal-body">
           <div id="carga-formulario">
-            <form class="form" id="formClienteActu" method="POST">
+            <form class="form" id="formClienteReg" method="POST">
               <div class="modal-body">
                 <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1"><i
-                      class="fa-solid fa-arrow-right-to-city"></i></span>
-                  <input type="text" [(ngModel)]="cliente.nombres" class="form-control" required placeholder="Pisos"
-                    aria-label="Pisos" name="pisosa" id="pisos" aria-describedby="basic-addon1">
+                  <span class="input-group-text"><i class="fa-solid fa-arrow-right-to-city"></i></span>
+                  <input type="text" [(ngModel)]="cliente.nombres" class="form-control" required placeholder="Nombres"
+                    name="nombres">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.a_paterno" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Apellido Paterno" name="a_paterno">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.a_materno" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Apellido Materno" name="a_materno">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.dni" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="DNI" name="dni">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.telefono" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Teléfono" name="telefono">
                   <p class="text-danger m-auto px-1">(*)</p>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
-                  <input type="text" [(ngModel)]="cliente.direccion" class="form-control" minlength="1" maxlength="100"
-                    required placeholder="Dirección" aria-label="Dirección" name="direcciona" id="direccion"
-                    aria-describedby="basic-addon1">
+                  <input type="text" [(ngModel)]="cliente.correo" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Correo" name="correo">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.contrasena" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Contraseña" name="contrasena">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><i class="fa-solid fa-face-meh-blank"></i></span>
+                  <select class="form-select" [(ngModel)]="cliente.estado" name="estado">
+                    <option *ngFor="let e of estados">{{e.nombre}}</option>
+                  </select>
                   <p class="text-danger m-auto px-1">(*)</p>
                 </div>
                 <div class="alert alert-danger mb-0 mt-3 mr-3">Datos requeridos(*)</div>
@@ -169,7 +199,7 @@
               <div class="modal-footer ">
                 <button type="button" onclick="cancelar()" class="btn btn-danger" data-bs-dismiss="modal"><i
                     class="fa fa-times"></i> Cancelar</button>
-                <button type="submit" value="Actualizar" class="btn btn-primary" (click)="actualizar(cliente);"><i
+                <button type="submit" (click)="actualizar(cliente)" class="btn btn-success"><i
                     class="fa fa-save"></i>
                   Actualizar</button>
               </div>
@@ -178,5 +208,5 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </section>

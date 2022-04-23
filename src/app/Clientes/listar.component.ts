@@ -15,7 +15,7 @@ export class ListarComponentC implements OnInit {
   estados =[
     {nombre:'Activo'},
     {nombre:'Inactivo'},
-];
+  ];
 
   constructor(private router: Router, private elementRef:ElementRef, private clienteService: ClienteService) { }
 

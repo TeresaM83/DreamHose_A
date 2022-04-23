@@ -14,12 +14,24 @@ import { EdificioService } from '../Servicios/edificio.service';
 export class ListarComponentD implements OnInit {
   departamento: Departamento= new Departamento;
   departamentos: Departamento[] = [];
+  edificio: Edificio = new Edificio;
   edificios: Edificio[]=[];
-
+  estados =[
+    {nombre:'Disponible'},
+    {nombre:'Ocupado'},
+  ];
+  idedificio!: number;
   constructor(private edificioService: EdificioService, private elementRef:ElementRef, private departamentoService: DepartamentoService) { }
   
-  guardar(departamento: Departamento){
+  guardar(departamento: Departamento, idedificio: number){
     if(departamento.piso!=null && departamento.piso>0 && departamento.n_habitaciones!=null && departamento.n_habitaciones>0 && departamento.n_banos!=null && departamento.n_banos>0 && departamento.area!=null && departamento.area>0 && departamento.precio!=null && departamento.precio>0){
+      
+      this.edificioService.getEdificio(idedificio).subscribe(
+        edificio=> this.edificio = edificio
+      );
+
+      departamento.edificio = this.edificio;
+      
       this.departamentoService.createDepartamento(departamento).subscribe(
         data=>{
             Swal.fire("Éxito","Departamento agregado correctamente","success").then((result) =>{
