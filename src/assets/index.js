@@ -19,8 +19,17 @@ $(document).ready( function () {
         ],
         "order": [[0, "desc"]]
     });
+    $('#ListaClientes').dataTable({
+      "language": {url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'},
+      "responsive": true,
+      "columnDefs": [
+          { responsivePriority: 1, targets: 0 },
+          { responsivePriority: 2, targets: -1 }
+      ],
+      "order": [[0, "desc"]]
+  });
     // EFECTOS
-    
+
     $("#titulo-banner").hover(function () {
         $(this).css("color", "white");
         $(this).css("border-color", "white");
@@ -39,11 +48,11 @@ $(document).ready( function () {
         $("#acerca").show(500);
         $(this).css("color", "blue");
     });
-    $("#img-mision").click(function (e) { 
+    $("#img-mision").click(function (e) {
         $("#mision").toggle(2000);
-        
+
     });
-    $("#img-vision").click(function (e) { 
+    $("#img-vision").click(function (e) {
         $("#vision").toggle(2000);
     });
     $(".precio").mouseleave(function () {

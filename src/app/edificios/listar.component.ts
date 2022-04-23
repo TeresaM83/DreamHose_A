@@ -12,9 +12,8 @@ export class ListarComponentE implements OnInit {
 
   edificio: Edificio = new Edificio();
   edificios: Edificio[] = [];
+  constructor(private router: Router, private elementRef:ElementRef, private edificioService: EdificioService){ }
 
-  constructor(private router: Router, private elementRef:ElementRef, private edificioService: EdificioService) { }
-  
   guardar(edificio: Edificio){
     if(edificio.n_pisos!=null && edificio.n_pisos>0 && edificio.direccion.trim()!=null){
       this.edificioService.createEdificio(edificio).subscribe(
