@@ -12,7 +12,13 @@ export class ListarComponentC implements OnInit {
 
   cliente: Cliente = new Cliente();
   clientes: Cliente[] = [];
+  estados =[
+    {nombre:'Activo' },
+    {nombre:'Inactivo' }
+];
   constructor(private router: Router, private elementRef:ElementRef, private clienteService: ClienteService) { }
+
+
 
   guardar(cliente: Cliente){
     if(cliente.nombres!=null && cliente.a_materno!=null && cliente.a_paterno!=null &&
