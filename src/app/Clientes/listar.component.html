@@ -22,22 +22,24 @@
                 <th>Correo</th>
                 <th>Contraseña</th>
                 <th>Estado</th>
+                <th>Acciones</th>
+
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let e of cliente">
-                <td>{{e.nombres}}</td>
-                <td>{{e.a_paterno}}</td>
-                <td>{{e.a_materno}}</td>
-                <td>{{e.dni}}</td>
-                <td>{{e.telefono}}</td>
-                <td>{{e.correo}}</td>
-                <td>{{e.contrasena}}</td>
-                <td>{{e.estado}}</td>
+              <tr *ngFor="let c of clientes">
+                <td>{{c.nombres}}</td>
+                <td>{{c.a_paterno}}</td>
+                <td>{{c.a_materno}}</td>
+                <td>{{c.dni}}</td>
+                <td>{{c.telefono}}</td>
+                <td>{{c.correo}}</td>
+                <td>{{c.contrasena}}</td>
+                <td>{{c.estado}}</td>
                 <td>
                   <button type="button" class="btn btn-primary btn-sm mx-1" data-bs-toggle="modal"
-                    data-bs-target="#mdlClienteActu" (click)="listarId(e)"><i class="fa fa-pencil"></i></button>
-                  <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminar(e);"><i
+                    data-bs-target="#mdlClienteActu" (click)="listarId(c)"><i class="fa fa-pencil"></i></button>
+                  <button type="button" class="btn btn-danger btn-sm mx-1" (click)="eliminar(c);"><i
                       class="fa fa-trash"></i></button>
                 </td>
               </tr>
@@ -46,6 +48,145 @@
         </div>
       </div>
       <div class="box-footer"></div>
+    </div>
+  </div>
+</section>
+<section>
+  <!-- REGISTRAR -->
+  <div class="modal fade" id="mdlCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registro de Clientes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="carga-formulario">
+            <form class="form" id="formClienteReg" method="POST">
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i
+                      class="fa-solid fa-arrow-right-to-city"></i></span>
+                  <input type="text" [(ngModel)]="cliente.nombres"  class="form-control" required placeholder="Nombres"
+                    aria-label="Nombres" name="nombres" aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.a_paterno" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Apellido Paterno" aria-label="Apellido Paterno" name="a_paterno"
+                    aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.a_materno" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Apellido Materno" aria-label="Apellido Materno" name="a_materno"
+                    aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.dni" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="DNI" aria-label="dni" name="dni"
+                    aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.direccion" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Direccion" aria-label="direccion" name="direccion"
+                    aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.telefono" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Telefono" aria-label="Dirección" name="direccion"
+                    aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.correo" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="correo" aria-label="correo" name="correo"
+                    aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.contrasena" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Contraseña" aria-label="contrasena" name="contrasena"
+                    aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-face-meh-blank"></i></span>
+                    <select
+                    [(ngModel)]="cliente.estado"  class="form-select" >
+                    <option value="Activo" selected="selected">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                    </select>
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="alert alert-danger mb-0 mt-3 mr-3">Datos requeridos(*)</div>
+              </div>
+              <div class="modal-footer ">
+                <button type="button" onclick="cancelar()" class="btn btn-danger" data-bs-dismiss="modal"><i
+                    class="fa fa-times"></i> Cancelar</button>
+                <button type="submit" (click)="guardar(cliente)" value="Registrar" class="btn btn-success"><i
+                    class="fa fa-save"></i>
+                  Registrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ACTUALIZAR -->
+  <div class="modal fade" id="mdlClienteActu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="carga-formulario">
+            <form class="form" id="formClienteActu" method="POST">
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i
+                      class="fa-solid fa-arrow-right-to-city"></i></span>
+                  <input type="text" [(ngModel)]="cliente.nombres" class="form-control" required placeholder="Pisos"
+                    aria-label="Pisos" name="pisosa" id="pisos" aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
+                  <input type="text" [(ngModel)]="cliente.direccion" class="form-control" minlength="1" maxlength="100"
+                    required placeholder="Dirección" aria-label="Dirección" name="direcciona" id="direccion"
+                    aria-describedby="basic-addon1">
+                  <p class="text-danger m-auto px-1">(*)</p>
+                </div>
+                <div class="alert alert-danger mb-0 mt-3 mr-3">Datos requeridos(*)</div>
+              </div>
+              <div class="modal-footer ">
+                <button type="button" onclick="cancelar()" class="btn btn-danger" data-bs-dismiss="modal"><i
+                    class="fa fa-times"></i> Cancelar</button>
+                <button type="submit" value="Actualizar" class="btn btn-primary" (click)="actualizar(cliente);"><i
+                    class="fa fa-save"></i>
+                  Actualizar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

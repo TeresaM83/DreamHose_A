@@ -9,7 +9,7 @@ import { ListarComponentP } from './Pagos/listar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 
-const routes: Routes = [ 
+const routes: Routes = [
 
   {path:'', component:InicioComponent},
   // {path:'', redirectTo:'/catalogo',pathMatch:"full"},

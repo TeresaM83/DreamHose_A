@@ -11,6 +11,7 @@ import {EdificioService} from './Servicios/edificio.service';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { DepartamentoService } from './Servicios/departamento.service';
+import { ListarComponentC } from './Clientes/listar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { DepartamentoService } from './Servicios/departamento.service';
     FooterComponent,
     ListarComponentD,
     ListarComponentE,
+    ListarComponentC,
     CatalogoComponent,
   ],
   imports: [

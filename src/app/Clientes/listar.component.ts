@@ -76,10 +76,10 @@ export class ListarComponentC implements OnInit {
     })
   }
   ngOnInit(): void {
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "./assets/index.js";
-    this.elementRef.nativeElement.appendChild(s);
+    var c = document.createElement("script");
+    c.type = "text/javascript";
+    c.src = "./assets/index.js";
+    this.elementRef.nativeElement.appendChild(c);
 
     this.clienteService.getClientes().subscribe(
       clientes => this.clientes = clientes
